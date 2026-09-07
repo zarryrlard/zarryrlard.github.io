@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <meta name="bingbot" content="index,follow">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script type="text/javascript" src="https://io.1130.hk/888.js"></script>
+  <title>女神漫画_免费高清漫画在线看_热门漫画大全</title>
+  <meta name="description" content="女神漫画平台提供海量高清漫画在线观看，涵盖言情、玄幻、悬疑、都市等多题材热门漫画作品。每日更新最新漫画章节，支持手机、平板多端同步阅读，为漫迷打造舒适的在线漫画阅读体验。快来女神漫画，开启你的专属漫画之旅吧。
+">
+  <meta name="keywords" content="女神漫画,漫画在线看,热门漫画,高清漫画,漫画大全,免费漫画,漫画更新">
+  <style>
+    /* ===== 全局变量与重置 ===== */
+    :root {
+      --primary: #8b5cf6;
+      --primary-dark: #6d28d9;
+      --primary-light: #a78bfa;
+      --accent: #f472b6;
+      --accent-light: #fbcfe8;
+      --bg-dark: #0b0810;
+      --bg-deep: #12101a;
+      --bg-card: rgba(255, 255, 255, 0.055);
+      --bg-card-hover: rgba(139, 92, 246, 0.12);
+      --border-light: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(139, 92, 246, 0.5);
+      --text-light: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #6b7280;
+      --radius-mid: 24px;
+      --radius-capsule: 70px;
+      --shadow-sm: 0 2px 14px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-main: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Roboto, sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--font-main);
+      background: linear-gradient(160deg, #0b0810 0%, #1a1628 50%, #0d0b16 100%);
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.8;
+      overflow-x: hidden;
+      position: relative;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul,
+    ol {
+      list-style: none;
+    }
+    /* 粒子背景层 */
+    .particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: floatParticle var(--duration) ease-in-out infinite alternate;
+    }
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      100% {
+        transform: translateY(-30px) translateX(12px) scale(1.1);
+      }
+    }
+    /* 滚动进度条 */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 10006;
+      width: 0%;
+    }
+    /* ===== 顶部固定导航栏 ===== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10000;
+      background: rgba(10, 8, 16, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 42px;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      flex-shrink: 0;
+    }
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .logo-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .header-nav a {
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 4px 0;
+    }
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+    .header-nav a:hover {
+      color: var(--text-light);
+    }
+    .header-nav a:hover::after {
+      width: 100%;
+    }
+    /* ===== Banner ===== */
+    .banner {
+      min-height: 65vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 20px 40px;
+      background: linear-gradient(135deg, rgba(109, 40, 217, 0.25), rgba(11, 8, 16, 0), rgba(244, 114, 182, 0.15));
+      overflow: hidden;
+    }
+    .banner::before,
+    .banner::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      z-index: 0;
+      animation: glowPulse 8s ease-in-out infinite alternate;
+    }
+    .banner::before {
+      width: 400px;
+      height: 400px;
+      background: rgba(139, 92, 246, 0.18);
+      top: -80px;
+      left: -120px;
+    }
+    .banner::after {
+      width: 320px;
+      height: 320px;
+      background: rgba(244, 114, 182, 0.12);
+      bottom: -50px;
+      right: -60px;
+      animation-delay: 2s;
+    }
+    @keyframes glowPulse {
+      0% {
+        transform: scale(1) translateY(0);
+      }
+      100% {
+        transform: scale(1.12) translateY(15px);
+      }
+    }
+    .banner-container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 2;
+    }
+    .banner-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .banner-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .banner-title {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #f8fafc;
+      letter-spacing: 1px;
+      margin: 4px 0 0;
+    }
+    .banner-title span {
+      color: var(--accent-light);
+    }
+    .banner-desc {
+      font-size: 16px;
+      color: #b6c2d4;
+      line-height: 1.9;
+      max-width: 480px;
+      margin: 0;
+    }
+    .banner-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .banner-pill {
+      padding: 6px 18px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 14px;
+      color: #e2e8f0;
+      transition: var(--transition);
+    }
+    .banner-pill:hover {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .banner-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-primary,
+    .btn-secondary {
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    /* Banner 右侧显示器窗口 */
+    .banner-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .monitor-window {
+      width: 480px;
+      max-width: 100%;
+      background: rgba(18, 16, 26, 0.9);
+      border: 2px solid #1e1b2a;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
+      animation: floatMonitor 6s ease-in-out infinite alternate;
+    }
+    @keyframes floatMonitor {
+      0% {
+        transform: perspective(1000px) rotateY(-3deg) rotateX(2deg) translateY(0);
+      }
+      100% {
+        transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) translateY(-8px);
+      }
+    }
+    .monitor-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #17141f;
+      border-bottom: 1px solid #262233;
+    }
+    .monitor-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .monitor-dot.red {
+      background: #ef4444;
+    }
+    .monitor-dot.yellow {
+      background: #f59e0b;
+    }
+    .monitor-dot.green {
+      background: #10b981;
+    }
+    .monitor-address {
+      flex: 1;
+      margin-left: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #7a8499;
+    }
+    .monitor-body {
+      display: flex;
+      padding: 28px 20px 20px;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+    .monitor-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 0.8;
+    }
+    .monitor-app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4);
+    }
+    .monitor-app-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+    .monitor-app-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+    .monitor-center {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .monitor-center svg {
+      width: 130px;
+      height: 130px;
+      transform: rotate(-90deg);
+    }
+    .monitor-center .ring-bg {
+      stroke: rgba(255, 255, 255, 0.08);
+    }
+    .monitor-center .ring-fg {
+      stroke: url(#ringGradient);
+      stroke-linecap: round;
+      animation: ringRotate 4s ease-in-out infinite alternate;
+    }
+    @keyframes ringRotate {
+      0% {
+        stroke-dashoffset: 82;
+      }
+      100% {
+        stroke-dashoffset: 55;
+      }
+    }
+    .monitor-center span {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: -8px;
+    }
+    .monitor-right {
+      flex: 0.9;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .monitor-data {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 8px 10px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .monitor-data .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .monitor-data .value {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-top: 2px;
+    }
+    /* ===== 通用 Section 样式 ===== */
+    .section {
+      padding: 90px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+      color: var(--text-light);
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 50px;
+    }
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 4px;
+      margin: 0 auto 50px;
+    }
+    /* ===== 核心优势模块 ===== */
+    .advantage {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(11, 8, 16, 0.98) 100%);
+    }
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .advantage-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-capsule);
+      padding: 36px 30px 42px;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .advantage-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-card-hover);
+    }
+    .advantage-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(244, 114, 182, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+    .advantage-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .advantage-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .advantage-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    /* ===== 精选视频模块 ===== */
+    .video-section {
+      background: linear-gradient(0deg, rgba(11, 8, 16, 1) 0%, rgba(19, 15, 32, 0.95) 100%);
+    }
+    .video-section .section-title span {
+      color: var(--accent-light);
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .video-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-mid);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+    .video-thumbnail {
+      height: 180px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #312e81, #831843);
+    }
+    .video-category {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #f1f5f9;
+    }
+    .video-category svg {
+      width: 14px;
+      height: 14px;
+    }
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .play-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+    .play-btn:hover {
+      background: rgba(139, 92, 246, 0.6);
+      transform: scale(1.08);
+    }
+    .video-duration {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 3px 10px;
+      border-radius: 16px;
+      font-size: 12px;
+      color: #e2e8f0;
+    }
+    .video-info {
+      padding: 18px;
+    }
+    .video-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: var(--transition);
+    }
+    .video-card:hover .video-title {
+      color: var(--primary-light);
+    }
+    .video-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 12px;
+      min-height: 50px;
+    }
+    .video-meta {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .video-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .video-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag-video {
+      background: rgba(139, 92, 246, 0.35);
+      color: #e9d5ff;
+      padding: 3px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+    .tag {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      padding: 3px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    /* ===== 相关资讯模块 ===== */
+    .news-section {
+      background: linear-gradient(0deg, rgba(9, 7, 13, 1) 0%, rgba(18, 16, 26, 0.95) 100%);
+    }
+    .news-section .section-title {
+      color: #f8fafc;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      grid-auto-rows: 1fr;
+    }
+    .news-card {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-mid);
+      padding: 24px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      transition: var(--transition);
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+      background: rgba(139, 92, 246, 0.08);
+    }
+    .news-date {
+      font-size: 13px;
+      color: #c4b5fd;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .news-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 54px;
+      margin-bottom: 10px;
+    }
+    .news-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .news-link {
+      margin-top: auto;
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: var(--transition);
+      display: inline-block;
+    }
+    .news-link:hover {
+      color: var(--primary-light);
+      letter-spacing: 1px;
+    }
+    /* ===== FAQ模块 ===== */
+    .faq-section {
+      background: linear-gradient(180deg, rgba(11, 8, 16, 1) 0%, rgba(18, 16, 26, 0.95) 100%);
+    }
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .faq-item {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-mid);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .faq-question i {
+      color: var(--primary);
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .faq-question span {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      flex: 1;
+    }
+    .faq-toggle {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .faq-toggle::before {
+      width: 14px;
+      height: 2px;
+      top: 9px;
+      left: 3px;
+    }
+    .faq-toggle::after {
+      width: 2px;
+      height: 14px;
+      top: 3px;
+      left: 9px;
+    }
+    .faq-item.active .faq-toggle::after {
+      transform: scaleY(0);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 1200px;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 22px 58px;
+    }
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+    .faq-answer p::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+    /* ===== 评论留言模块 ===== */
+    .comment-section {
+      background: linear-gradient(0deg, rgba(9, 7, 13, 1) 0%, rgba(11, 8, 16, 0.98) 100%);
+    }
+    .comment-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-mid);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .comment-form-wrap {
+      flex: 0 0 380px;
+      display: flex;
+      flex-direction: column;
+    }
+    .comment-form-inner {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-mid);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      height: 100%;
+    }
+    .comment-form-inner input,
+    .comment-form-inner textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 14px 18px;
+      color: var(--text-light);
+      font-size: 15px;
+      font-family: inherit;
+      transition: var(--transition);
+      outline: none;
+    }
+    .comment-form-inner input::placeholder,
+    .comment-form-inner textarea::placeholder {
+      color: var(--text-dim);
+    }
+    .comment-form-inner input:focus,
+    .comment-form-inner textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+    .comment-form-inner textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+    .comment-submit {
+      align-self: flex-start;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .comment-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    }
+    .comment-list-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .comment-list {
+      max-height: 620px;
+      overflow-y: auto;
+      padding-right: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .comment-list::-webkit-scrollbar {
+      width: 5px;
+    }
+    .comment-list::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.4);
+      border-radius: 4px;
+    }
+    .comment-item {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-mid);
+      padding: 18px 20px;
+      transition: var(--transition);
+    }
+    .comment-item:hover {
+      background: rgba(255, 255, 255, 0.055);
+    }
+    .comment-item-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(244, 114, 182, 0.3));
+      flex-shrink: 0;
+    }
+    .comment-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e2e8f0;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .comment-date {
+      font-size: 12px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .comment-tag-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .comment-tag {
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      background: rgba(139, 92, 246, 0.15);
+      color: #c4b5fd;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .comment-content {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      word-wrap: break-word;
+    }
+    .comment-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .comment-footer button {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .comment-footer button:hover {
+      color: var(--primary-light);
+    }
+    .comment-more {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    /* ===== 页脚 ===== */
+    .site-footer {
+      background: #09070d;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 40px 20px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .site-footer p {
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+    .site-footer .copyright {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .banner-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .banner-left {
+        align-items: center;
+      }
+      .banner-pills,
+      .banner-buttons {
+        justify-content: center;
+      }
+      .monitor-window {
+        width: 90%;
+        max-width: 480px;
+      }
+      .advantage-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .comment-container {
+        flex-direction: column;
+        padding: 24px;
+      }
+      .comment-form-wrap {
+        flex: none;
+        width: 100%;
+      }
+    }
+    @media (max-width: 640px) {
+      .section {
+        padding: 60px 16px;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+      .header-inner {
+        height: 56px;
+        padding: 0 14px;
+      }
+      .header-nav {
+        gap: 14px;
+      }
+      .header-nav a {
+        font-size: 13px;
+      }
+      .header-nav a:nth-child(6) {
+        display: none;
+      }
+      .logo-name {
+        font-size: 17px;
+      }
+      .banner {
+        padding: 80px 16px 40px;
+      }
+      .banner-title {
+        font-size: 28px;
+      }
+      .banner-desc {
+        font-size: 15px;
+      }
+      .banner-pill {
+        padding: 4px 14px;
+        font-size: 13px;
+      }
+      .btn-primary,
+      .btn-secondary {
+        padding: 12px 22px;
+        font-size: 14px;
+      }
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+      .advantage-card {
+        border-radius: var(--radius-mid);
+        padding: 28px 24px;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+      .news-card {
+        min-height: 220px;
+      }
+      .comment-container {
+        padding: 16px;
+        border-radius: var(--radius-mid);
+      }
+      .comment-form-inner {
+        padding: 20px;
+      }
+      .comment-item {
+        padding: 14px;
+      }
+      .comment-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+      }
+      .monitor-window {
+        transform: none;
+      }
+    }
+    /* ===== 加载淡入 ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- 粒子背景层 -->
+  <div class="particle-bg" id="particleBg"></div>
+  <!-- ===== 固定导航栏 ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L20 5V12C20 16.5 16.5 21 12 22C7.5 21 4 16.5 4 12V5L12 3Z"/><path d="M8 9H16"/><circle cx="12" cy="15" r="1.5"/></svg>
+        </div>
+        <span class="logo-name">女神漫画</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#section-banner">首页</a>
+        <a href="#section-advantage">核心优势</a>
+        <a href="#section-video">精选视频</a>
+        <a href="#section-news">相关资讯</a>
+        <a href="#section-faq">常见问题</a>
+        <a href="#section-comment">评论留言</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== 首屏 Banner ===== -->
+  <section class="banner" id="section-banner">
+    <div class="banner-container">
+      <div class="banner-left">
+        <span class="banner-tag">热门漫画每日更新 →</span>
+        <h1 class="banner-title">女神漫画，<span>发现你的专属次元宇宙</span></h1>
+        <p class="banner-desc">
+          女神漫画专注于为用户提供最新、最全的漫画资源，涵盖日漫、国漫、韩漫等多个品类。<br>
+          平台定期更新漫画情报与热门榜单推荐，让每一位漫迷都能在这里找到心仪的作品。
+        </p>
+        <div class="banner-pills">
+          <span class="banner-pill">全套番剧</span>
+          <span class="banner-pill">实时更新</span>
+          <span class="banner-pill">高清画质</span>
+          <span class="banner-pill">多端同步</span>
+          <span class="banner-pill">免费阅读</span>
+        </div>
+        <div class="banner-buttons">
+          <a href="#" class="btn-primary">立即开始阅读</a>
+          <a href="#section-advantage" class="btn-secondary">了解平台</a>
+        </div>
+      </div>
+      <div class="banner-right">
+        <div class="monitor-window">
+          <div class="monitor-header">
+            <span class="monitor-dot red"></span>
+            <span class="monitor-dot yellow"></span>
+            <span class="monitor-dot green"></span>
+            <span class="monitor-address">女神漫画 · 阅读中心</span>
+          </div>
+          <div class="monitor-body">
+            <div class="monitor-left">
+              <div class="monitor-app-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L20 5V12C20 16.5 16.5 21 12 22C7.5 21 4 16.5 4 12V5L12 3Z"/></svg>
+              </div>
+              <span class="monitor-app-name">女神漫画</span>
+            </div>
+            <div class="monitor-center">
+              <svg viewBox="0 0 120 120">
+                <defs>
+                  <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8b5cf6"/>
+                    <stop offset="100%" stop-color="#f472b6"/>
+                  </linearGradient>
+                </defs>
+                <circle class="ring-bg" cx="60" cy="60" r="48" stroke-width="8" fill="none"/>
+                <circle class="ring-fg" cx="60" cy="60" r="48" stroke-width="8" fill="none" stroke-dasharray="301.6" stroke-dashoffset="82"/>
+              </svg>
+              <span>阅读指数 75%</span>
+            </div>
+            <div class="monitor-right">
+              <div class="monitor-data"><div class="label">今日更新</div><div class="value">268 话</div></div>
+              <div class="monitor-data"><div class="label">在线漫友</div><div class="value">2.4 万</div></div>
+              <div class="monitor-data"><div class="label">漫画总量</div><div class="value">12000+</div></div>
+              <div class="monitor-data"><div class="label">好评率</div><div class="value">98.7%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 核心优势模块 ===== -->
+  <section class="section advantage" id="section-advantage">
+    <div class="section-container">
+      <h2 class="section-title fade-in">为什么选择女神漫画？</h2>
+      <p class="section-subtitle fade-in">六大核心优势，为漫迷打造全方位沉浸式阅读体验</p>
+      <div class="advantage-grid">
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M4 20L8 16M16 16L20 20M12 16V8M12 8C13.5 8 15 6.5 15 5H9C9 6.5 10.5 8 12 8Z"/></svg></div>
+          <h3>海量漫画资源</h3>
+          <p>收录12000+部正版漫画作品，涵盖日漫、国漫、韩漫、港漫等多元类型，新老经典一应俱全，总有你喜欢的那一本。</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M12 6V12L16 14M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z"/></svg></div>
+          <h3>实时同步更新</h3>
+          <p>与热门漫画平台同步推送，最快速度获取最新章节，追更不再等待，第一时间畅读最新剧情。</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M2 12L7 7M7 7L12 12M7 7V16M16 7L22 13M22 13L16 19M22 13L16 7"/></svg></div>
+          <h3>高清无广告阅读</h3>
+          <p>精选高清原图，支持自定义亮度、背景色、翻页模式等个性化设置，干净清爽的沉浸式阅读环境。</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M12 18V6M12 6C12 4 14 3 16 3C18 3 19 4 19 6C19 8 17 9 16 9H12M12 6C12 8 10 9 8 9C6 9 5 8 5 6C5 4 6 3 8 3C10 3 12 4 12 6Z"/></svg></div>
+          <h3>多端智能同步</h3>
+          <p>手机、平板、电脑端阅读进度自动云同步，随时随地无缝衔接，通勤居家都能畅快追漫。</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M12 5C14 3 17 3 19 5C21 7 21 10 19 12L12 19L5 12C3 10 3 7 5 5C7 3 10 3 12 5Z"/></svg></div>
+          <h3>智能推荐算法</h3>
+          <p>基于AI兴趣模型，深度分析你的阅读偏好，为你精准推荐口味匹配的宝藏漫画，帮你发现冷门佳作。</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon"><svg viewBox="0 0 24 24"><path d="M17 21H7C5.895 21 5 20.105 5 19V5C5 3.895 5.895 3 7 3H17C18.105 3 19 3.895 19 5V19C19 20.105 18.105 21 17 21ZM8 10L12 14M12 14L16 10M12 14V7M8 18H16"/></svg></div>
+          <h3>漫迷互动社区</h3>
+          <p>章节评论、弹幕吐槽、评分榜单、话题讨论一应俱全，和千万漫迷一起分享追漫乐趣，遇见同好。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 精选视频模块 ===== -->
+  <section class="section video-section" id="section-video">
+    <div class="section-container">
+      <h2 class="section-title fade-in">热门视频 <span>· 精彩不容错过</span></h2>
+      <p class="section-subtitle fade-in">精选漫画相关视频，混剪、推荐、访谈一手掌握</p>
+      <div class="video-grid">
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #312e81, #831843);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9L15 12L10 15V9Z"/></svg>热门混剪</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">12:30</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">女神漫画 · 热门番剧高能混剪</h3>
+            <p class="video-desc">超燃战斗瞬间与催泪名场面完美交织，一口气看完今年最火爆的漫画番剧高光片段，极致视觉体验。</p>
+            <div class="video-meta"><span>▶ 12.6万</span><span>👍 8235</span></div>
+            <div class="video-tags"><span class="tag-video">热门</span><span class="tag">高能</span><span class="tag">混剪</span></div>
+          </div>
+        </div>
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #1e3a8a, #701a75);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"/></svg>国漫推荐</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">08:15</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">国漫崛起 · 必看精品榜TOP10</h3>
+            <p class="video-desc">从水墨丹青到3D巨制，盘点近年来最值得骄傲的国产动漫佳作，感受国漫的崛起之路。</p>
+            <div class="video-meta"><span>▶ 8.3万</span><span>👍 5721</span></div>
+            <div class="video-tags"><span class="tag-video">国漫</span><span class="tag">榜单</span><span class="tag">精品</span></div>
+          </div>
+        </div>
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #1e293b, #0f766e);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L20 5V12C20 16.5 16.5 21 12 22C7.5 21 4 16.5 4 12V5L12 3Z"/></svg>经典回顾</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">15:45</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">经典日漫 · 名场面催泪回忆杀</h3>
+            <p class="video-desc">那些陪伴我们青春的动画名场面，再一次点亮心间。每一帧都是回不去的童年，经典永不过时。</p>
+            <div class="video-meta"><span>▶ 15.1万</span><span>👍 11842</span></div>
+            <div class="video-tags"><span class="tag-video">经典</span><span class="tag">回忆杀</span><span class="tag">日漫</span></div>
+          </div>
+        </div>
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #083344, #be185d);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16V12M12 8H12.01"/></svg>宝藏推荐</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">06:20</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">冷门宝藏漫画推荐 · 小众神作篇</h3>
+            <p class="video-desc">名气不大但口碑炸裂的冷门漫画推荐，剧情画风双在线，让你的收藏夹多一份意外惊喜。</p>
+            <div class="video-meta"><span>▶ 4.2万</span><span>👍 3124</span></div>
+            <div class="video-tags"><span class="tag">冷门</span><span class="tag">宝藏</span><span class="tag">推荐</span></div>
+          </div>
+        </div>
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #4c0519, #6d28d9);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7V12L15 14"/></svg>新番速递</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">10:05</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">2026春季新番抢先看 · 神仙打架季</h3>
+            <p class="video-desc">群星璀璨的4月新番前瞻整理，异世界、悬疑、恋爱、战斗一网打尽，提前锁定你的追番名单。</p>
+            <div class="video-meta"><span>▶ 6.8万</span><span>👍 5208</span></div>
+            <div class="video-tags"><span class="tag-video">新番</span><span class="tag">前瞻</span><span class="tag">春季</span></div>
+          </div>
+        </div>
+        <div class="video-card fade-in">
+          <div class="video-thumbnail" style="background: linear-gradient(135deg, #0c4a6e, #9333ea);">
+            <span class="video-category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15C15 15 18 17 18 21M6 21C6 17 9 15 12 15M12 12C13.5 12 15 10.5 15 9C15 7.5 13.5 6 12 6C10.5 6 9 7.5 9 9C9 10.5 10.5 12 12 12Z"/></svg>声优访谈</span>
+            <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12L8 5Z"/></svg></div>
+            <span class="video-duration">18:30</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">声优访谈 · 幕后配音故事全记录</h3>
+            <p class="video-desc">走进配音棚，听实力声优们聊聊角色塑造背后的趣事，感受声音表演的魅力与感动。</p>
+            <div class="video-meta"><span>▶ 3.5万</span><span>👍 2450</span></div>
+            <div class="video-tags"><span class="tag">声优</span><span class="tag">访谈</span><span class="tag">幕后</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 相关资讯模块 ===== -->
+  <section class="section news-section" id="section-news">
+    <div class="section-container">
+      <h2 class="section-title fade-in">相关资讯</h2>
+      <p class="section-subtitle fade-in">了解女神漫画平台最新动态与漫画行业前沿消息</p>
+      <div class="section-divider fade-in"></div>
+      <div class="news-grid">
+        <div class="news-card fade-in">
+          <span class="news-date">2026-01-26</span>
+          <h3 class="news-title">女神漫画平台全新改版上线，界面交互全面升级</h3>
+          <p class="news-desc">新版女神漫画采用更智能的算法推荐与更流畅的翻页体验，书架管理、章节缓存等功能焕然一新，让每一次阅读更加惬意。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+        <div class="news-card fade-in">
+          <span class="news-date">2026-01-18</span>
+          <h3 class="news-title">热门漫画IP衍生动画化制作正式启动</h3>
+          <p class="news-desc">平台独家连载的头部漫画IP宣布动画化，由国内顶尖制作团队操刀，角色设定、世界观将高度还原原作，敬请期待。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+        <div class="news-card fade-in">
+          <span class="news-date">2026-01-10</span>
+          <h3 class="news-title">2025年度漫画阅读习惯报告重磅发布</h3>
+          <p class="news-desc">报告显示移动端漫画阅读时长同比增长32%，女性向作品热度持续走高，短篇彩色条漫成为新增长点。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+        <div class="news-card fade-in">
+          <span class="news-date">2026-01-02</span>
+          <h3 class="news-title">女神漫画独家签约漫画家名单新鲜出炉</h3>
+          <p class="news-desc">梁小飞、阿梗等五位实力派漫画家正式入驻女神漫画，未来将通过平台首发全新短篇与连载作品，充实原创内容生态。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+        <div class="news-card fade-in">
+          <span class="news-date">2025-12-26</span>
+          <h3 class="news-title">数字化转型加速，漫画行业内容付费模式迎来新阶段</h3>
+          <p class="news-desc">伴随订阅制、章节付费、广告分成等模式走向成熟，漫画创作者的变现通道更加多元，优质内容供给持续扩大。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+        <div class="news-card fade-in">
+          <span class="news-date">2025-12-15</span>
+          <h3 class="news-title">女神漫画用户阅读偏好大揭秘，悬疑类增幅显著</h3>
+          <p class="news-desc">大数据显示平台用户偏好逐渐向悬疑、奇幻、都市情感等类型延伸，全站人均阅读时长环比提升18%，互动评论数翻番。</p>
+          <a href="#" class="news-link">查看详情 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 常见问题 FAQ 模块 ===== -->
+  <section class="section faq-section" id="section-faq">
+    <div class="section-container">
+      <h2 class="section-title fade-in">常见问题解答</h2>
+      <p class="section-subtitle fade-in">关于漫画作品与影视幕后的热门答疑，带你看透作品背后的秘密</p>
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-mask"></i>
+            <span>《海贼王》中路飞的草帽是谁送给他的？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>草帽是红发香克斯在风车村与路飞分别时托付给他保管的礼物。</p>
+              <p>这顶草帽原本属于海贼王罗杰，由香克斯继承，承载着跨越时代的信念。</p>
+              <p>路飞将草帽视为最珍贵的宝物，他向香克斯发誓要成为伟大的海贼王。</p>
+              <p>在顶上战争与和之国篇中，草帽多次象征“D之意志”的传承与伙伴的羁绊。</p>
+              <p>草帽的归还约定成为路飞成长旅途中最重要的情感锚点之一。</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-item fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-eye"></i>
+            <span>《火影忍者》中宇智波鼬的真实身份是什么？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>宇智波鼬是木叶村安插在“晓”组织内部的秘密卧底，真实身份是双重间谍。</p>
+              <p>他背负了灭族的罪名，实为木叶高层命令下保护村子和平的“间谍型叛忍”。</p>
+              <p>鼬身患绝症，在与佐助的宿命对决中选择故意败北，解除佐助的咒印枷锁。</p>
+              <p>第四次忍界大战中，借助别天神之术与剧场版线索，鼬的真相得以全面揭晓。</p>
+              <p>鼬的角色塑造被全球火影迷视为最悲情也最伟大的兄长形象之一。</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-item fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-flask"></i>
+            <span>《名侦探柯南》中黑衣组织的首领是谁？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>黑衣组织的最终BOSS为乌丸莲耶，一位半个世纪前神秘失踪的超级大富豪。</p>
+              <p>在漫画File.1008中，工藤新一与赤井秀一分析朗姆与乌丸莲耶的关系，BOSS身份首次被主角锁认。</p>
+              <p>贝尔摩德等人将BOSS称为“那位先生”，组织内部几乎无人见过其真容。</p>
+              <p>乌丸莲耶的长生不老愿望与APTX4869药物密切相关，组织的一切实验都围绕此展开。</p>
+              <p>该设定为柯南主线剧情中最重要的悬念，距今已埋下近三十年伏笔。</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faq-item fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-sword"></i>
+            <span>《鬼灭之刃》中炭治郎的日轮刀颜色为何是黑色？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>日轮刀颜色取决于使用者的呼吸法属性与资质，黑刀极为罕见，被称为“不吉利的颜色”。</p>
+              <p>黑刀在过去被误认为会带来诅咒，实际暗示使用者继承了日之呼吸的资质。</p>
+              <p>炭治郎的日之呼吸正是继国缘一传承下来，黑色刀刃对应太阳的焰色。</p>
+              <p>黑刀在吸收太阳光后刀刃会变成赤红色，能有效抑制鬼的再生能力。</p>
+              <p>这一设定让炭治郎在鬼杀队中成为被寄予厚望的特殊存在。</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="faq-item fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-hand-pointer"></i>
+            <span>《咒术回战》中两面宿傩手指的意义是什么？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>两面宿傩是千年前的“诅咒之王”，死后身躯被分割为20根手指成为特级咒物。</p>
+              <p>每一根手指都蕴含宿傩极其强大的咒力，普通咒术师触碰也极易被夺舍或诅咒侵蚀。</p>
+              <p>虎杖悠仁吞下宿傩手指后成为容器，但保留了自我意识，因此被咒术界视为危险但重要的战略粒子。</p>
+              <p>手指被分藏在日本各地结界中，由咒术高专派遣咒术师严密看守与封印。</p>
+              <p>收集全部手指让宿傩完全复活是当前咒术回战主线的重要悬念之一。</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 6 -->
+        <div class="faq-item fade-in">
+          <button class="faq-question" type="button">
+            <i class="fa-solid fa-user-group"></i>
+            <span>《进击的巨人》中的巨人是怎么产生的？</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>巨人起源于远古时期的艾尔迪亚人“尤弥尔·弗里茨”与“大地恶魔”签订的契约。</p>
+              <p>尤弥尔获得巨人之力后，其血统能够通过脊髓液将力量遗传给后代与族人。</p>
+              <p>注射巨人脊髓液的人类在一定刺激下会变成无垢巨人，失去自我意识。</p>
+              <p>九大巨人之力的继承者能保持人形自由切换巨人形态，并拥有独特的能力。</p>
+              <p>巨人的真实起源与“尤弥尔的子民”被压迫的残酷历史紧密关联，构成作品的核心悲剧。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 评论留言模块 ===== -->
+  <section class="section comment-section" id="section-comment">
+    <div class="section-container">
+      <h2 class="section-title fade-in">漫迷评论站</h2>
+      <p class="section-subtitle fade-in">听听其他漫迷怎么说，留下你的声音</p>
+      <div class="section-divider fade-in"></div>
+      <div class="comment-container fade-in">
+        <!-- 左侧发布表单 -->
+        <div class="comment-form-wrap">
+          <div class="comment-form-inner">
+            <input type="text" placeholder="你的昵称" maxlength="20" id="commentNickname">
+            <textarea placeholder="写下你对本站剧集、功能的看法与建议..." id="commentTextarea"></textarea>
+            <button class="comment-submit" id="commentSubmit"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3V13M4 7L8 3L12 7"/></svg>发布留言</button>
+          </div>
+        </div>
+        <!-- 右侧评论列表 -->
+        <div class="comment-list-wrap">
+          <div class="comment-list" id="commentList"></div>
+          <div class="comment-more">↓ 向下滑动查看更多留言</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <p>© 2026 女神漫画 版权所有 · 科技让阅读更美好</p>
+    <p>免责声明：本站所有作品均来源于网络公开社区分享，仅供学习交流，请于下载后24小时内删除，尊重原创版权。</p>
+    <p class="copyright">本站已全面支持 IPv6 · 女神漫画的漫画宇宙，期待与你相遇 ✨</p>
+  </footer>
+  <!-- ===== JSON-LD 结构化数据 ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [{
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "《海贼王》中路飞的草帽是谁送给他的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "草帽是红发香克斯在风车村与路飞分别时托付给路飞的；这顶草帽原本属于海贼王罗杰；路飞将草帽视为最重要的宝物并发誓成为海贼王；在顶上战争与和之国中草帽象征D之意志的传承；草帽的归还约定是路飞的重要情感锚点。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "《火影忍者》中宇智波鼬的真实身份是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "宇智波鼬是木叶村安插在晓组织的秘密卧底；他背负灭族罪名实为保护村子和平；鼬身患绝症在与佐助决战中故意落败；第四次忍界大战中鼬的真相全面揭开；鼬被火影迷视为最悲情的兄长形象。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "《名侦探柯南》中黑衣组织的首领是谁？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "黑衣组织的BOSS为乌丸莲耶；漫画File.1008中主角首次锁定其身份；贝尔摩德称BOSS为那位先生；乌丸莲耶的长生不老愿望与APTX4869药物密切相关；这一悬念已埋下近三十年伏笔。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "《鬼灭之刃》中炭治郎的日轮刀颜色为何是黑色？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "日轮刀颜色取决于呼吸法属性与资质；黑刀极为罕见曾被视为不吉利；黑刀实际象征使用者继承日之呼吸资质；炭治郎的黑刀在阳光下能变红抑制鬼再生；该设定让炭治郎成为鬼杀队特殊存在。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "《咒术回战》中两面宿傩手指的意义是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "两面宿傩死后被分割为20根指成为特级咒物；每根手指蕴含宿傩强大咒力；虎杖悠仁吞下手指后成为容器但保留自我意识；手指被分藏日本各地结界中；收集全部手指让宿傩复活是重要悬念。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "《进击的巨人》中的巨人是怎么产生的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "巨人源自尤弥尔与大地恶魔的契约；尤弥尔血统可通过脊髓液传承力量；注射巨人脊髓液的人会变成无垢巨人；九大巨人之力拥有者可变回人形并操控能力；巨人起源与尤弥尔子民的悲惨历史紧密相关。"
+        }
+      }]
+    }, {
+      "@type": "VideoObject",
+      "name": "女神漫画 · 热门番剧高能混剪",
+      "description": "超燃战斗瞬间与催泪名场面完美交织，一口气看完今年最火爆的漫画番剧高光片段。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v1.jpg",
+      "uploadDate": "2026-01-20",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "VideoObject",
+      "name": "国漫崛起 · 必看精品榜TOP10",
+      "description": "从水墨丹青到3D巨制，盘点近年来最值得骄傲的国产动漫佳作。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v2.jpg",
+      "uploadDate": "2026-01-18",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "VideoObject",
+      "name": "经典日漫 · 名场面催泪回忆杀",
+      "description": "那些陪伴我们青春的动画名场面，每一帧都是回不去的童年。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v3.jpg",
+      "uploadDate": "2026-01-15",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "VideoObject",
+      "name": "冷门宝藏漫画推荐 · 小众神作篇",
+      "description": "名气不大但口碑炸裂的冷门漫画推荐，让你的收藏夹多一份意外惊喜。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v4.jpg",
+      "uploadDate": "2026-01-12",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "VideoObject",
+      "name": "2026春季新番抢先看 · 神仙打架季",
+      "description": "异世界、悬疑、恋爱、战斗一网打尽，提前锁定你的追番名单。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v5.jpg",
+      "uploadDate": "2026-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "VideoObject",
+      "name": "声优访谈 · 幕后配音故事全记录",
+      "description": "走进配音棚，听实力声优们聊聊角色塑造背后的趣事。",
+      "thumbnail": "https://img.nvshenmanhua.com/video/v6.jpg",
+      "uploadDate": "2026-01-08",
+      "publisher": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "女神漫画平台全新改版上线，界面交互全面升级",
+      "description": "新版女神漫画采用更智能的算法推荐与更流畅的翻页体验，让每一次阅读更加惬意。",
+      "datePublished": "2026-01-26",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "热门漫画IP衍生动画化制作正式启动",
+      "description": "平台独家连载的头部漫画IP宣布动画化，由国内顶尖团队操刀。",
+      "datePublished": "2026-01-18",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "2025年度漫画阅读习惯报告重磅发布",
+      "description": "报告显示移动端漫画阅读时长同比增长32%，女性向作品热度持续走高。",
+      "datePublished": "2026-01-10",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "女神漫画独家签约漫画家名单新鲜出炉",
+      "description": "梁小飞、阿梗等五位实力派漫画家正式入驻女神漫画。",
+      "datePublished": "2026-01-02",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "数字化转型加速，漫画行业内容付费模式迎来新阶段",
+      "description": "订阅制、章节付费、广告分成等模式走向成熟，优质内容供给扩大。",
+      "datePublished": "2025-12-26",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }, {
+      "@type": "Article",
+      "headline": "女神漫画用户阅读偏好大揭秘，悬疑类增幅显著",
+      "description": "用户偏好逐渐向悬疑、奇幻、都市情感等类型延伸，全站互动评论数翻番。",
+      "datePublished": "2025-12-15",
+      "author": {
+        "@type": "Organization",
+        "name": "女神漫画"
+      }
+    }]
+  }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ===== 滚动进度条 =====
+      var progressBar = document.getElementById('scrollProgress');
+      function updateProgress() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+      // ===== 粒子背景生成 =====
+      var particleBg = document.getElementById('particleBg');
+      var colors = ['#8b5cf6', '#f472b6', '#a78bfa', '#fbcfe8', '#6d28d9'];
+      for (var i = 0; i < 36; i++) {
+        var particle = document.createElement('div');
+        particle.className = 'particle';
+        var size = Math.random() * 6 + 2;
+        var posX = Math.random() * 100;
+        var posY = Math.random() * 100;
+        var duration = Math.random() * 8 + 6;
+        var color = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + posX + '%;top:' + posY + '%;background:' + color + ';--duration:' + duration + 's;opacity:' + (Math.random() * 0.25 + 0.08) + ';';
+        particleBg.appendChild(particle);
+      }
+      // ===== 淡入动画（IntersectionObserver） =====
+      var fadeEls = document.querySelectorAll('.fade-in');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      fadeEls.forEach(function(el) { observer.observe(el); });
+      // ===== FAQ 手风琴交互 =====
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', function() {
+          var isActive = item.classList.contains('active');
+          // 全部折叠
+          faqItems.forEach(function(it) { it.classList.remove('active'); });
+          // 再次点击则保持折叠
+          if (!isActive) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      });
+      // ===== 评论动态生成（50条） =====
+      var commentList = document.getElementById('commentList');
+      var commentsData = [
+        { name: '漫游少女', avatar: '🌸', tag: '热议', date: '2026-02-12 21:35', content: '女神漫画的更新速度真的太强了吧，我等了半年的漫画居然一口气放出了三话连更，直接看爽了！', likes: 356, replies: 23 },
+        { name: '次元旅人', avatar: '⭐', tag: '理性', date: '2026-02-12 18:22', content: '从去年用到现在，发现书架同步功能越来越稳了，手机看到一半，换平板直接无缝衔接，体验非常流畅。', likes: 184, replies: 7 },
+        { name: '纸鸢不飞', avatar: '📚', tag: '热门', date: '2026-02-12 15:08', content: '强烈推荐《边缘行者》，画风和剧情都超一流，尤其结尾的分镜处理，真的会让人眼眶一热。', likes: 528, replies: 46 },
+        { name: '晨光微熹', avatar: '☀️', tag: '观点', date: '2026-02-12 12:44', content: '建议平台增加一个“阅读时习惯”的统计面板，可以看到自己一年读了多少话，这样会很有成就感！', likes: 87, replies: 12 },
+        { name: '像素幽灵', avatar: '👻', tag: '催更', date: '2026-02-12 10:11', content: '请问《星海旅人》什么时候恢复更新啊，卡在关键剧情一个月了，孩子的命也是命啊！！', likes: 291, replies: 31 },
+        { name: '青柠不酸', avatar: '🍋', tag: '好评', date: '2026-02-12 09:05', content: '女神漫画的翻译质量肉眼可见地在进步，专有名词注释也很到位，这一点对追更体验提升太大了。', likes: 143, replies: 6 },
+        { name: '春风十里路', avatar: '🌿', tag: '热议', date: '2026-02-12 07:32', content: '首页推荐算法真的神了，昨天刚看完《间谍过家家》，今天就给我推荐了同类型的《怪獣8号》，一追就停不下来。', likes: 432, replies: 56 },
+        { name: '盐水虾', avatar: '🦐', tag: '讨论', date: '2026-02-11 22:18', content: '有人看《葬送的芙莉莲》漫画最新话了吗，前一秒还在笑，后一秒突然催泪，节奏控制得太厉害了。', likes: 267, replies: 29 },
+        { name: '旧城旧梦', avatar: '🏙️', tag: '观点', date: '2026-02-11 20:44', content: '对比了好几款漫画阅读平台，还是女神漫画的排版最舒服，字距、行距调得刚好，长时间看不累眼睛。', likes: 118, replies: 3 },
+        { name: '半盏流年', avatar: '⏳', tag: '精彩', date: '2026-02-11 17:09', content: '《蓝色时期》的评论区也太有深度了吧，大家分享的学美术经历看得我热泪盈眶，好平台汇聚好读者。', likes: 205, replies: 41 },
+        { name: '风动石', avatar: '🪨', tag: '热门', date: '2026-02-11 14:55', content: '什么时候能上《电锯人》第二部的实时更新啊！！！我已经等了整整一年了，别逼我跪下来求你。', likes: 488, replies: 72 },
+        { name: '三色猫', avatar: '🐱', tag: '好评', date: '2026-02-11 12:17', content: '特别喜欢女神漫画的夜间模式，黑色背景做得非常纯粹，对比度刚刚好，被窝里追漫体验满分。', likes: 76, replies: 5 },
+        { name: '予你长情', avatar: '💌', tag: '热议', date: '2026-02-11 09:30', content: '《我的幸福婚姻》更新后，评论区都在尖叫哈哈，这对CP的互动也太甜了，姨妈笑停不下来。', likes: 312, replies: 35 },
+        { name: '不瘦到90不改名', avatar: '🍰', tag: '理性', date: '2026-02-11 08:22', content: '有一说一，弹幕功能目前还比较基础，希望增加举报和屏蔽关键词功能，有些弹幕确实很影响观感。', likes: 54, replies: 9 },
+        { name: '阿尼亚哇库', avatar: '😄', tag: '精彩', date: '2026-02-11 07:45', content: '看到《间谍过家家》剧场版预告了，正好上课的时候在大屏上打开了女神漫画，画质超清晰，太享受了！', likes: 220, replies: 13 },
+        { name: '午夜飞行', avatar: '✈️', tag: '讨论', date: '2026-02-10 23:18', content: '有人和我一样觉得《地狱乐》的打斗分镜比动画版还精细吗？漫画原作的细节真的多到可怕。', likes: 148, replies: 17 },
+        { name: '北岛的声音', avatar: '🎧', tag: '观点', date: '2026-02-10 20:36', content: '希望新的VIP订阅能增加一个“家庭共享”的选项，和朋友合租一起订阅会更划算，个人用户压力有点大。', likes: 102, replies: 19 },
+        { name: '树洞先生', avatar: '🌳', tag: '催更', date: '2026-02-10 17:55', content: '《链锯人》最新话在哪里！！藤本树老师千万不要鸽啊，我每天的快乐源泉就靠它了！！', likes: 379, replies: 64 },
+        { name: '棉花糖白', avatar: '☁️', tag: '好评', date: '2026-02-10 14:22', content: '自动续费的定价很透明，而且用一个月的体验确实值回票价，希望能有越来越多的独家版权漫画！', likes: 96, replies: 4 },
+        { name: '银河修理员', avatar: '🔧', tag: '讨论', date: '2026-02-10 11:38', content: '有个小问题请教大家：缓存漫画时是优先缓存整话还是当前页啊？我流量不够用老是纠结哈哈。', likes: 31, replies: 22 },
+        { name: '海盐芝士', avatar: '🧀', tag: '热议', date: '2026-02-10 09:42', content: '《药屋少女的呢喃》真的太好看了！猫猫的吐槽功力一流，感谢女神漫画让我发现了这部神仙作品。', likes: 279, replies: 26 },
+        { name: '长街听风', avatar: '🌬️', tag: '理性', date: '2026-02-10 07:21', content: '希望优化一下评论区的图片支持，现在只能发文字，如果能发一些表情包截图会更有意思。', likes: 68, replies: 11 },
+        { name: '别踩我鞋', avatar: '👟', tag: '精彩', date: '2026-02-09 22:14', content: '从《巨人》最终章入坑，一口气补完了全系列，女神漫画的超清画质让始祖巨人的压迫感直接拉满。', likes: 441, replies: 59 },
+        { name: '一颗荔枝', avatar: '🍒', tag: '好评', date: '2026-02-09 19:07', content: '客服反馈速度值得点赞，上次遇到加载问题，提交反馈后半小时就收到答复并解决了，非常贴心。', likes: 67, replies: 3 },
+        { name: '遥远的她', avatar: '🌙', tag: '讨论', date: '2026-02-09 16:40', content: '《葬送的芙莉莲》和《岁月星旅》的节奏感都是慢热型的，但看完后内心会特别平静舒服，这就是好故事的力量吧。', likes: 156, replies: 14 },
+        { name: '冬日暖阳', avatar: '🌞', tag: '热议', date: '2026-02-09 14:28', content: '国漫版块越来越丰富了！《雾山五行》的评论区每天都有人分析五行细节和伏笔，氛围特别棒。', likes: 213, replies: 27 },
+        { name: '小透明啊', avatar: '🫧', tag: '观点', date: '2026-02-09 11:50', content: '希望能增加一个“阅读专注度”统计，记录每次连续阅读时长，和全球漫友做排名对比，增加一点仪式感。', likes: 43, replies: 6 },
+        { name: '想飞的鱼', avatar: '🐟', tag: '催更', date: '2026-02-09 09:33', content: '《咒术回战》漫画又休刊了，但平台依旧把旧内容整理得特别好，回顾卷收藏做得很用心。', likes: 178, replies: 15 },
+        { name: '奶油蛋糕卷', avatar: '🎂', tag: '热门', date: '2026-02-09 08:04', content: '今天逛首页发现《和山田进行LV999的恋爱》更新了，速度也太快了，刚在日站看到情报这里就有了！', likes: 209, replies: 6 },
+        { name: '人间理想', avatar: '🌹', tag: '好评', date: '2026-02-08 23:11', content: '最喜欢女神漫画的“离线缓存”功能，通勤地铁上没信号也能流畅阅读，体验感拉满。', likes: 88, replies: 5 },
+        { name: '晚风吻尽', avatar: '🌙', tag: '讨论', date: '2026-02-08 20:25', content: '看了《我心里危险的东西》，突然理解了纯爱为何永不过时，漫画细腻的心理描写比任何滤镜都动人。', likes: 168, replies: 21 },
+        { name: '路见不平', avatar: '🛤️', tag: '理性', date: '2026-02-08 18:08', content: '希望漫画评论区增加按时间正序/倒序切换的按钮，目前只能默认时间倒序，有时候想从头爬楼不太方便。', likes: 45, replies: 8 },
+        { name: '听风说你', avatar: '🍃', tag: '热议', date: '2026-02-08 15:41', content: '女神漫画的“猜你喜欢”越来越懂我了，今天推荐的《温泉屋的小老板娘》温馨治愈，一口气看了十话。', likes: 189, replies: 8 },
+        { name: '借我一抹光', avatar: '🌟', tag: '观点', date: '2026-02-08 12:16', content: '本人是翻译爱好者，感觉女神漫画的日漫翻译有些地方信达雅兼得，希望能开放译名投稿，让社区参与更深入。', likes: 72, replies: 13 },
+        { name: '小鹿迢迢', avatar: '🦌', tag: '精彩', date: '2026-02-08 10:22', content: '从校园到职场，漫画陪我走了好多年。女神漫画的启动页每次换的主题都好美，很有仪式感。', likes: 99, replies: 2 },
+        { name: '夜雨声烦', avatar: '🌧️', tag: '催更', date: '2026-02-08 08:33', content: '《夏目友人帐》新章什么时候来啊？每周期待平台更新已经成了成年人的小小寄托了。', likes: 221, replies: 17 },
+        { name: '樱桃丸子', avatar: '🍒', tag: '好评', date: '2026-02-07 22:18', content: '客服小姐姐态度超好，我反馈的字体大小问题第二天就修复了，行动力真的无可挑剔。', likes: 56, replies: 4 },
+        { name: '孤帆远影', avatar: '⛵', tag: '讨论', date: '2026-02-07 20:30', content: '把《灌篮高手》漫画又在平台重温了一遍，那份热血从未冷却，感谢高清重制版让老作品焕发新生。', likes: 287, replies: 25 },
+        { name: '半糖去冰', avatar: '🧋', tag: '热议', date: '2026-02-07 17:54', content: '最近迷上了《式守同学不只可爱而已》，剧情搞笑又治愈，评论区人气也很旺，推荐给大家！', likes: 134, replies: 9 },
+        { name: '深海硫磺', avatar: '🌋', tag: '理性', date: '2026-02-07 14:46', content: '建议增加一个“新书尝鲜”专区，集中展示新落户平台的漫画首章，方便读者快速发现冷门佳作。', likes: 63, replies: 7 },
+        { name: '长夜未央', avatar: '🛌', tag: '热议', date: '2026-02-07 11:02', content: '女神漫画的阅读器优化真好，双页翻卷漫画时可以自动切横屏，体验比很多专门阅读器都舒服。', likes: 95, replies: 3 },
+        { name: '心宽体胖', avatar: '🍩', tag: '讨论', date: '2026-02-07 09:17', content: '《女仆咖啡厅》这部老番在平台上有高清修复版，直呼经典！希望更多老作品都能重新上架。', likes: 121, replies: 11 },
+        { name: '青衫湿遍', avatar: '🌂', tag: '观点', date: '2026-02-07 07:26', content: '希望增加评论区的“点赞”表情多样性，目前只有大拇指，想给高质量的漫画评论来一朵小红花哈哈。', likes: 35, replies: 2 },
+        { name: '云朵收藏家', avatar: '☁️', tag: '精彩', date: '2026-02-06 23:05', content: '《SPY×FAMILY》的动画和漫画同步追，平台更新速度非常稳定，每周三一定能看到最新话，安心。', likes: 176, replies: 8 },
+        { name: '一只柠檬', avatar: '🍋', tag: '好评', date: '2026-02-06 20:21', content: '刚开通连续包月，界面很清爽没有乱扣费，每周的“免费阅读”板块也保持更新，好感度直线上升。', likes: 81, replies: 6 },
+        { name: '穿越人海', avatar: '🚉', tag: '讨论', date: '2026-02-06 18:45', content: '漫画《日日是好日》的评论区简直就是人生感悟现场，读漫之余还能收获许多温暖共鸣。', likes: 143, replies: 19 },
+        { name: '山止川行', avatar: '🏞️', tag: '热门', date: '2026-02-06 15:12', content: '女神漫画的热门榜单含金量很高，看得出是真实阅读数据排出来的，不像某些平台可以刷榜。', likes: 221, replies: 14 },
+        { name: '落笔成章', avatar: '✍️', tag: '观点', date: '2026-02-06 12:37', content: '希望能支持“双页模式”下自动保存阅读笔记，有些漫画的构图设计很值得分析记录。', likes: 52, replies: 5 },
+        { name: '微光城市', avatar: '🌆', tag: '热议', date: '2026-02-06 10:19', content: '今晚发现女神漫画的社区氛围真的很好，关于《蓝色监狱》的战术分析帖竟然有几百条高质量回复！', likes: 165, replies: 28 },
+        { name: '人间清欢', avatar: '🍵', tag: '催更', date: '2026-02-06 08:20', content: '求求赶紧上《哥哥的肉嘟嘟女友》吧，朋友已经在别的平台看完了，孩子快要馋死了！', likes: 97, replies: 12 }
+      ];
+      // 时间降序排列（随机时间戳）
+      commentsData.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+      // 图标映射
+      var tagIcons = {
+        '热议': '🔥',
+        '理性': '🧭',
+        '热门': '📈',
+        '观点': '💡',
+        '精彩': '✨',
+        '讨论': '💬',
+        '催更': '⏰',
+        '好评': '👍'
+      };
+      commentsData.forEach(function(item) {
+        var card = document.createElement('div');
+        card.className = 'comment-item';
+        var header = document.createElement('div');
+        header.className = 'comment-item-header';
+        header.innerHTML = '<div class="comment-avatar">' + item.avatar + '</div>' +
+          '<span class="comment-name">' + item.name + '</span>' +
+          '<span class="comment-date">' + item.date + '</span>';
+        card.appendChild(header);
+        var tagRow = document.createElement('div');
+        tagRow.className = 'comment-tag-row';
+        var icon = tagIcons[item.tag] || '🏷️';
+        tagRow.innerHTML = '<span class="comment-tag"><span>' + icon + '</span>' + item.tag + '</span>';
+        card.appendChild(tagRow);
+        var content = document.createElement('div');
+        content.className = 'comment-content';
+        content.textContent = item.content;
+        card.appendChild(content);
+        var footer = document.createElement('div');
+        footer.className = 'comment-footer';
+        footer.innerHTML = '<button><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15C21 16.1 20.1 17 19 17H8L4 21V5C4 3.9 4.9 3 6 3H19C20.1 3 21 3.9 21 5V15Z"/></svg>回复</button>' +
+          '<button><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5C14 4 13 3 12 3L5 10V21H17L21 15V9H14Z"/></svg>' + item.likes + '</button>' +
+          '<button><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4H20V16H8L4 20V4Z"/></svg>' + item.replies + '</button>';
+        card.appendChild(footer);
+        commentList.appendChild(card);
+      });
+      // ===== 表单提交（模拟） =====
+      var submitBtn = document.getElementById('commentSubmit');
+      submitBtn.addEventListener('click', function() {
+        var nickname = document.getElementById('commentNickname').value.trim();
+        var textarea = document.getElementById('commentTextarea').value.trim();
+        if (!nickname) {
+          alert('请先填写你的昵称');
+          return;
+        }
+        if (!textarea) {
+          alert('请输入留言内容');
+          return;
+        }
+        var card = document.createElement('div');
+        card.className = 'comment-item';
+        var now = new Date();
+        var dateStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0') +
+          ' ' + String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+        card.innerHTML = '<div class="comment-item-header"><div class="comment-avatar">🙂</div><span class="comment-name">' + nickname +
+          '</span><span class="comment-date">' + dateStr + '</span></div>' +
+          '<div class="comment-tag-row"><span class="comment-tag"><span>🔥</span>热议</span></div>' +
+          '<div class="comment-content">' + textarea + '</div>' +
+          '<div class="comment-footer"><button>回复</button><button>👍 0</button><button>💬 0</button></div>';
+        commentList.insertBefore(card, commentList.firstChild);
+        document.getElementById('commentNickname').value = '';
+        document.getElementById('commentTextarea').value = '';
+        alert('留言已发布，感谢你的分享！');
+      });
+    });
+  </script>
+</body>
+        </html>
